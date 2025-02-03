@@ -1,14 +1,12 @@
 :root {
     /* main fonts and text colors */
-    --logo-font: ;
     --title-font: ;
     --main-font: ;
-    --main-color: #ffffff;
-    --box-shadow: 10px 10px 20px 5px rgba(255, 255, 255, 0.185);
-    --hover-color: #c40000;
 
     /* colors */
-    --background-color: black;
+    --color-1: #e4e4e4;
+    --color-2: black;
+    --color-3: #c40000;
 
     /* cursor */
     --cursor: crosshair;
@@ -18,6 +16,7 @@
     --padding-body: 0px 40px;
     --padding-footer: 0 30px;
     --header-height: 80px;
+    --border-radius: 5px;
   }
 
 /* base */
@@ -30,8 +29,8 @@ html, body {
 
 body {
     font-family: var(--main-font);
-    color: var(--main-color);
-    background: var(--background-color);
+    color: var(--color-1);
+    background: var(--color-2);
     height: 100vh;
     margin: 0;
     /* sticking the footer */
@@ -44,7 +43,7 @@ main {
     margin-top: var(--header-height);
     flex: 1; /* fill the remaining space */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(1fr, 5);
 }
 
 /* header and footer section */
@@ -55,14 +54,14 @@ header{
     height: var(--header-height);
     width: 100%;
     position: fixed;
-    background-color: var(--background-color);
+    background-color: var(--color-2);
 }
 
 h1 > a {
     display: inline-block;
-    font-family: var(--logo-font);
+    font-family: var(--title-font);
     font-size: 2.5rem;
-    color: var(--main-color);
+    color: var(--color-1);
     text-decoration: none;
     transition: transform 0.25s ease;
 }
@@ -102,7 +101,7 @@ footer {
     height: 35px;
     font-family: var(--main-font);
     font-size: 1.2rem;
-    color: var(--main-color);
+    color: var(--color-1);
     margin: 0;
     padding-bottom: 5px;
     user-select: none;
@@ -114,49 +113,58 @@ footer > * {
 }
 
 footer > a:hover, footer > p:hover {
-    color: var(--hover-color);
+    color: var(--color-3);
     cursor: var(--cursor);
 }
 
 /* main section */
-
 a {
     text-decoration: none;
-    color: var(--main-color);
+    color: var(--color-1);
     cursor: var(--cursor);
 }
 
 .content-div{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     grid-column: span 4;
-    height: 75vh;
+    margin-top: 30px;
+    height: auto;
+
 }
 
-.menu-div{
-    height: 75vh;
+#content{
+    width: 75vw; 
+    max-width: 1200px; 
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 1px var(--color-1);
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    overflow: auto;
 }
 
-.content{
-    width: 900px;
-    height: 600px;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 30px;
-    margin-top: 6vh;
-    margin-left: 15vh;
+.menu-div {
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
 }
 
 .menu-ul {
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     list-style: none;
-    margin-top: 10vh;
-    margin-left: 10vh;
 }
 
 .menu-ul > li > a {
     cursor: var(--cursor);
-    font-size: 2.3rem;
+    font-size: 2.3em;
     display: inline-block;
     transition: transform 0.25s ease;
     padding: 3px;
@@ -177,8 +185,48 @@ a {
 }
 
 .buttons > * {
+    margin-top: 40px;
     height: 30px;
     width: 30px;
-    background-color: var(--hover-color);
+    background-color: var(--color-3);
     border-radius: 50px;
+}
+
+.bio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    overflow: auto;
+}
+
+.bio > p {
+    padding: 80px;
+    font-family: var(--main-font);
+    font-size: clamp(1.3em, 2vw, 1.7em);
+}
+
+.bio > img {
+    width: 33%;
+    height: 33%;
+    border-radius: var(--border-radius);
+    margin-left: 50px;
+}
+
+.bio::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.bio::-webkit-scrollbar-track {
+    background: var(--color-2);
+}
+
+.bio::-webkit-scrollbar-thumb {
+    background: var(--color-3); 
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.bio::-webkit-scrollbar-thumb:hover {
+    background: var(--color-1); 
 }
