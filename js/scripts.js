@@ -138,9 +138,9 @@ function getRandomColor() {
 function setDefaultIcons() {
     document.querySelectorAll(".socials").forEach(img => {
         if (img.getAttribute("alt") === "instagram_hyperlink") {
-            img.setAttribute("src", "/assets/icons/instagram_white.png");
+            img.setAttribute("src", "assets/icons/instagram_white.png");
         } else if (img.getAttribute("alt") === "tumbrl_hyperlink") {
-            img.setAttribute("src", "/assets/icons/tumbrl_white.png");
+            img.setAttribute("src", "assets/icons/tumbrl_white.png");
         }
     });
 }
