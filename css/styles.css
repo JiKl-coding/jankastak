@@ -5,8 +5,8 @@
 
     /* colors */
     --color-1: #e4e4e4;
-    --color-2: black;
-    --color-3: #c40000;
+    --color-2: #000000;
+    --color-3: #ca3030;
 
     /* cursor */
     --cursor: crosshair;
@@ -25,6 +25,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--color-2);
 }
 
 body {
@@ -168,6 +169,10 @@ a {
     display: inline-block;
     transition: transform 0.25s ease;
     padding: 3px;
+}
+
+.menu-ul > li.active > a {
+    color: var(--color-3);
 }
 
 .menu-ul > li > a:hover {
