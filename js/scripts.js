@@ -3,6 +3,16 @@ const DEFAULT_COLOR_1 = '#e4e4e4';
 const DEFAULT_COLOR_2 = '#000000';
 const DEFAULT_COLOR_3 = '#ca3030';
 
+/* ---------------------------------------- SCRIPTS -------------------------------------------*/ 
+
+const socialLinks = {
+    instagram: "https://www.instagram.com/notfoundself/",
+    tumblr: "https://upartman.tumblr.com/"
+};
+
+document.getElementById("igLink").href = socialLinks.instagram;
+document.getElementById("tbLink").href = socialLinks.tumblr;
+
 /* ------------------------------------- EVENT LISTENERS ------------------------------------- */ 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -69,7 +79,7 @@ function loadContent(page) {
         .then(response => response.text())
         .then(data => {
             content.innerHTML = data;
-            setTimeout(() => content.style.opacity = 1, 100);
+            setTimeout(() => content.style.opacity = 1, 1);
         })
         .catch(error => console.error("Chyba při načítání obsahu:", error));
 }
@@ -101,7 +111,7 @@ function swapColors() {
         root.style.setProperty('--color-2', color1);
         // Swap icons
         swapIcon("instagram_white.png", "instagram.png");
-        swapIcon("tumbrl_white.png", "tumbrl.png");
+        swapIcon("tumblr_white.png", "tumblr.png");
     }
 
 
@@ -140,7 +150,7 @@ function setDefaultIcons() {
         if (img.getAttribute("alt") === "instagram_hyperlink") {
             img.setAttribute("src", "assets/icons/instagram_white.png");
         } else if (img.getAttribute("alt") === "tumbrl_hyperlink") {
-            img.setAttribute("src", "assets/icons/tumbrl_white.png");
+            img.setAttribute("src", "assets/icons/tumblr_white.png");
         }
     });
 }
