@@ -261,7 +261,7 @@ a {
 
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
 
     main {
         display: flex;
@@ -304,6 +304,8 @@ a {
     }
 
     .buttons{
+        margin-left: 70px;
+        margin-right: 70px;
         height: 120px;
     }
 
