@@ -11,6 +11,7 @@
     /* cursor */
     --cursor: crosshair;
     --cursor-basic: not-allowed;
+    --cursor-content: grab;
 
     /* others */
     --padding-body: 0px 40px;
@@ -32,7 +33,7 @@ body {
     font-family: var(--main-font);
     color: var(--color-1);
     background: var(--color-2);
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     /* sticking the footer */
     display: flex;
@@ -140,12 +141,21 @@ a {
     max-width: 1200px; 
     aspect-ratio: 16 / 9;
     border-radius: 15px;
-    box-shadow: 0 0 5px 1px var(--color-1);
+    box-shadow: 0 0 15px 3px #7e7e7e94;
     transition: opacity 0.3s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: start;
     overflow: auto;
+    cursor: var(--cursor-content);
+}
+
+.show-menu {
+    display: none;
+}
+
+.s-menu-div {
+    display: none;
 }
 
 .menu-div {
@@ -195,6 +205,7 @@ a {
     width: 30px;
     background-color: var(--color-3);
     border-radius: 50px;
+    cursor: var(--cursor);
 }
 
 .bio{
@@ -213,7 +224,6 @@ a {
 
 .bio > img {
     width: 33%;
-    height: 33%;
     border-radius: var(--border-radius);
     margin-left: 50px;
 }
@@ -234,4 +244,67 @@ a {
 
 .bio::-webkit-scrollbar-thumb:hover {
     background: var(--color-1); 
+}
+
+
+
+/* media queries */
+@media (max-width: 1024px) {
+
+    .menu-div {
+        margin-top: 80px;
+    }
+
+    #content{
+        width: 70vw; 
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-div {
+        margin-top: 0px;
+        display: none;
+    }
+
+    .s-menu-div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-ul {
+        padding: 0;
+    }
+    
+    .show-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4rem;
+        height: 12vh;
+    }
+
+    .show-menu > a{
+        cursor: var(--cursor);
+        color: var(--color-3);
+        writing-mode: vertical-rl;
+    }
+
+    #content {
+        width: 85vw; 
+    }
+
+    .buttons{
+        height: 120px;
+    }
+
 }

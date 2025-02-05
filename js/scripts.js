@@ -16,41 +16,13 @@ document.getElementById("tbLink").href = socialLinks.tumblr;
 /* ------------------------------------- EVENT LISTENERS ------------------------------------- */ 
 document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelector(".load-main").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/photo.html");
-        setActiveMenuItem(document.querySelector(".load-photo"));
-    });
+    /* listeners for menu */
+    addMenuEventListeners();
 
-    document.querySelector(".load-photo").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/photo.html");
-        setActiveMenuItem(this);
-    });
-
-    document.querySelector(".load-video").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/video.html");
-        setActiveMenuItem(this);
-    });
-
-    document.querySelector(".load-print").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/print.html");
-        setActiveMenuItem(this);
-    });
-
-    document.querySelector(".load-bio").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/bio.html");
-        setActiveMenuItem(this);
-    });
-
-    document.querySelector(".load-contact").addEventListener("click", function(event) {
-        event.preventDefault();
-        loadContent("html/contact.html");
-        setActiveMenuItem(this);
-    });
+    // menu-button for mobile devices
+    document.getElementById("menu-button").addEventListener("click", function() {
+        loadContent("html/menu.html");
+    });     
 
     // color-swap button
     document.getElementById("colors").addEventListener("click", function() {
@@ -61,12 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("do-not-click").addEventListener("click", function() {
         setRandomColors();
     });
-
-     // Set default active menu item when loading the index.html
-     setActiveMenuItem(document.querySelector(".load-photo"));
-
-     // load default content
-     loadContent("html/photo.html");
 
 });
 /* ---------------------------------------- FUNCTIONS ---------------------------------------- */ 
@@ -81,6 +47,7 @@ function loadContent(page) {
             content.innerHTML = data;
             setTimeout(() => content.style.opacity = 1, 1);
         })
+
         .catch(error => console.error("Chyba při načítání obsahu:", error));
 }
 
@@ -153,4 +120,50 @@ function setDefaultIcons() {
             img.setAttribute("src", "assets/icons/tumblr_white.png");
         }
     });
+}
+
+function addMenuEventListeners() {
+
+    document.querySelector(".load-main").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/photo.html");
+        setActiveMenuItem(document.querySelector(".load-photo"));
+    });
+
+    document.querySelector(".load-photo").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/photo.html");
+        setActiveMenuItem(this);
+    });
+
+    document.querySelector(".load-video").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/video.html");
+        setActiveMenuItem(this);
+    });
+
+    document.querySelector(".load-print").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/print.html");
+        setActiveMenuItem(this);
+    });
+
+    document.querySelector(".load-bio").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/bio.html");
+        setActiveMenuItem(this);
+    });
+
+    document.querySelector(".load-contact").addEventListener("click", function(event) {
+        event.preventDefault();
+        loadContent("html/contact.html");
+        setActiveMenuItem(this);
+    });
+
+    // Set default active menu item when loading the index.html
+    setActiveMenuItem(document.querySelector(".load-photo"));
+
+    // load default content
+    loadContent("html/photo.html");
+
 }
